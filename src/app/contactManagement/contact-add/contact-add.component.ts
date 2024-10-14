@@ -16,7 +16,7 @@ export class ContactAddComponent {
   }
   onSubmit(form: NgForm) {
     this.contService.formSubmitted = true;
-    if (form.valid && this.contService.formData.firstName.trim() != '' && this.contService.formData.lastName.trim() != '') {
+    if (form.valid) {
       if (this.contService.formData.id == 0) {
         this.saveContact(form);
       } else {
@@ -34,7 +34,7 @@ export class ContactAddComponent {
         this.toastService.success("Submitted Successfully", 'Contact App');
       },
       error: err => {
-        this.toastService.error(err, 'Contact App');
+        console.log(err);
       }
     })
   }
@@ -47,7 +47,7 @@ export class ContactAddComponent {
         this.toastService.info("Updated Successfully", 'Contact App');
       },
       error: err => {
-        this.toastService.error(err, 'Contact App');
+        console.log(err);
       }
     })
   }

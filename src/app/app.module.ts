@@ -9,12 +9,17 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from "@angular/forms";
+import { ContactAddReactiveComponent } from './contactManagement/contact-add-reactive/contact-add-reactive.component';
+import { ContactReactiveComponent } from './contactManagement/contact-reactive/contact-reactive.component';
 @NgModule({
   declarations: [
     AppComponent,
     ContactListComponent,
     ContactAddComponent,
-    DashboardComponent
+    DashboardComponent,
+    ContactAddReactiveComponent,
+    ContactReactiveComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +27,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     ToastrModule.forRoot(),
   ],
   providers: [],

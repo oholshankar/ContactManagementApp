@@ -1,8 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { ContactService } from 'src/app/shared/contact.service';
 import { Contact } from 'src/app/shared/contact.model';
 import { ToastrService } from 'ngx-toastr';
-
+import { NgbModal, NgbModalRef } from "@ng-bootstrap/ng-bootstrap";
 @Component({
   selector: 'app-contact-list',
   templateUrl: './contact-list.component.html',
@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ContactListComponent {
   @ViewChild('closePopup') closePopupAfterSave: any;
+  @Output() openPopup = new EventEmitter();
   constructor(public contService: ContactService, private toastService: ToastrService) {
 
   }
@@ -18,8 +19,12 @@ export class ContactListComponent {
   }
 
   getContact(cd: Contact) {
-    this.contService.formData = Object.assign({}, cd);
 
+    this.contService.formData = Object.assign({}, cd);
+  }
+
+  OpenModal() {
+    this.openPopup.emit();
   }
   deleteContact(id: number) {
     if (confirm('Are you sure to delete?'))
