@@ -35,3 +35,7 @@ https://github.com/oholshankar/Contact_Management_Backend
 ## Application Web API deployed on Azure Portal
 
 https://contactmanagementapi-ebdzd8g5ezh5e2db.centralindia-01.azurewebsites.net/api/Contacts
+
+## Angular Application on Azure Portal deployment
+
+https://angularcontactapp.azurewebsites.net/
