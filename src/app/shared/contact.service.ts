@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 import { Contact } from './contact.model';
 import { NgForm } from '@angular/forms';
 @Injectable({
@@ -11,6 +11,7 @@ export class ContactService {
   listContacts: Contact[] = [];
   formData: Contact = new Contact();
   formSubmitted: boolean = false;
+  totalContacts: number = 0;
   constructor(private http: HttpClient) { }
 
   //Get Contact List--User Story-Get Contact 001
@@ -18,6 +19,7 @@ export class ContactService {
     this.http.get(this.url).subscribe({
       next: res => {
         this.listContacts = res as Contact[];
+        this.totalContacts = this.listContacts.length;
       }, error: err => {
         console.log(err);
       }
