@@ -21,8 +21,8 @@ export class ContactAddReactiveComponent implements OnInit {
     if (this.contactData.id == 0) {
       this.contactForm = this.fb.group({
         id: ['0', Validators.required],
-        firstName: ['', Validators.required],
-        lastName: ['', Validators.required],
+        firstName: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+        lastName: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
         email: ['', [Validators.required, Validators.email]]
       });
     } else {

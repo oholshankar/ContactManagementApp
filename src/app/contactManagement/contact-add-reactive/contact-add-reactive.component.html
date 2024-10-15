@@ -12,6 +12,7 @@
                     [ngClass]="{ 'is-invalid': contService.formSubmitted && f['firstName'].errors }">
                 <p *ngIf="contService.formSubmitted && f['firstName'].errors" class="invalid-feedback">
                     <span *ngIf="f['firstName'].errors?.['required']">First Name is required</span>
+                    <span *ngIf="f['firstName'].errors?.['pattern']">Please Enter only Characters</span>
                 </p>
             </div>
             <div class="mb-3">
@@ -20,6 +21,7 @@
                     [ngClass]="{ 'is-invalid': contService.formSubmitted && f['lastName'].errors }">
                 <p *ngIf="contService.formSubmitted && f['lastName'].errors" class="invalid-feedback">
                     <span *ngIf="f['lastName'].errors?.['required']">Last Name is required</span>
+                    <span *ngIf="f['lastName'].errors?.['pattern']">Please Enter only Characters</span>
                 </p>
             </div>
             <div class="col mb-3">

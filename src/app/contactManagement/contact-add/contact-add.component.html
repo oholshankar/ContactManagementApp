@@ -4,12 +4,14 @@
     <div class="form-group">
         <label>First Name</label>
         <input class="form-control form-control-md" placeholder="First Name" #FirstName="ngModel"
-            [(ngModel)]="contService.formData.firstName" name="firstName" required>
+            [(ngModel)]="contService.formData.firstName" pattern="^[a-zA-Z]+$" name="firstName" required>
+        <p class="text-danger" *ngIf="FirstName.errors?.['pattern']">Please Enter Only Characters</p>
     </div>
     <div class="form-group">
         <label>Last Name</label>
         <input class="form-control form-control-md" placeholder="Last Name" #LastName="ngModel"
-            [(ngModel)]="contService.formData.lastName" name="lastName" required>
+            [(ngModel)]="contService.formData.lastName" pattern="^[a-zA-Z]+$" name="lastName" required>
+        <p class="text-danger" *ngIf="LastName.errors?.['pattern']">Please Enter Only Characters</p>
     </div>
     <div class="form-group">
         <label>Email</label>
